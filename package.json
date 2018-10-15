@@ -1,0 +1,17 @@
+{
+  "name": "reddit_api_work",
+  "version": "1.0.0",
+  "description": "My first time to work with the Reddit API. Goal is to filter the output by specific Search terms, like amount or rating",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Reddit",
+    "api",
+    "fetch.parcel.app",
+    "search"
+  ],
+  "author": "Tolga Kara",
+  "license": "MIT"
+}
