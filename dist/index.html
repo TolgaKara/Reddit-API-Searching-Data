@@ -1,13 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/style.e308ff8e.css">
+
     <title>Reddit API Search</title>
-</head>
+<script src="/style.e308ff8e.js"></script></head>
+
 <body>
-    
+    <nav class="navbar navbar-dark bg-success mb-3">
+        <div class="container">
+            <span class="navbar-brand">Reddit API Search</span>
+        </div>
+    </nav>
+    <div id="search-container" class="container">
+        <div id="search" class="card card-body bg-light mb-3">
+            <h4>Search in <span class="text-success">Reddit</span></h4>
+            <form id="search-form">
+                <div class="form-group">
+                    <input type="text" id="search-input" class="form-control mb-3" placeholder="&#xF002 Search Term" style="font-family:Arial,FontAwesome">
+                </div>
+                <div class="form-check form-check-inline">
+                    Sort By:
+                    <input class="form-check-input ml-2" type="radio" name="sortby" value="relevance" checked="">
+                    <label class="form-check-label">
+                        Relevance
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="sortby" value="new">
+                    <label class="form-check-label">
+                        Latest
+                    </label>
+                </div>
+                <h5 class="mt-2">Limit of Result: </h5>
+                <div class="form-group">
+                    <select name="limit" id="limit" class="form-control">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="25" selected="">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-success btn-block mt-4">Submit</button>
+            </form>
+        </div>
+        <div id="results"></div>
+    </div>
+
     <script src="/Reddit API with Search function.e31bb0bc.js"></script>
 </body>
+
 </html>
