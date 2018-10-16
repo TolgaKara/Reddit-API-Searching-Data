@@ -106,11 +106,45 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"index.js":[function(require,module,exports) {
 var searchForm = document.getElementById('search-form');
-var searchInput = document.getElementById('search-input');
+var searchInput = document.getElementById('search-input'); // Search Form Event Listener
+
 searchForm.addEventListener('submit', function (e) {
-  console.log(123);
+  // Get search term value
+  var searchTerm = searchInput.value; // Get sort | checked value
+
+  var sortBy = document.querySelector('input[name="sortby"]:checked').value; // Get Limit
+
+  var searchLimit = document.getElementById('limit').value; // Check input if empty
+
+  if (searchTerm === '') {
+    // Show warning message
+    showMessage('Please add a search term', 'alert-warning');
+  } // Clear input
+
+
+  searchInput.value = ''; // Search Reddit via Fetch API
+
   e.preventDefault();
-});
+}); // Show Message
+
+function showMessage(message, className) {
+  // Create div
+  var div = document.createElement('div'); // Add class
+
+  div.className = "alert ".concat(className); // Add text
+
+  div.appendChild(document.createTextNode(message)); // Get parent
+
+  var searchContainer = document.getElementById('search-container'); // Get search
+
+  var search = document.getElementById('search'); // Insert message
+
+  searchContainer.insertBefore(div, search); // Timeout the message to disappear
+
+  setTimeout(function () {
+    return document.querySelector('.alert').remove();
+  }, 3000);
+}
 },{}],"C:/Users/Tolga Kara/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
