@@ -30,13 +30,21 @@ searchForm.addEventListener('submit', e => {
 
             // Create forEach for getting the relevant data and display it
             results.forEach(post => {
+
+                // Check if a img is contained
+                let img = post.preview ? post.preview.images[0].source.url : 'https://cdn.comparitech.com/wp-content/uploads/2017/08/reddit-1.jpg'
+
                 output += `
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
+                <img class="card-img-top" src="${img}" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">${post.title}</h5>
                     <p class="card-text">${truncateText(post.selftext, 100)}</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <hr>
+                    <span class ="badge badge-secondary">Subreddit: ${post.subreddit}</span>
+                    <span class ="badge badge-dark">Score: ${post.score}</span>
+                    <hr>
+                    <a href="${post.url}" target = "_blank" class="btn btn-success">Read More on Reddit</a>
                 </div>
             </div>`;
             });
