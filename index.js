@@ -24,15 +24,26 @@ searchForm.addEventListener('submit', e => {
     searchInput.value = '';
 
     // Search Reddit via Fetch API
-    reddit.search(searchTerm,searchLimit,sortBy)
-    .then(results => {
-        let output = '<div class="card-columns">';
+    reddit.search(searchTerm, searchLimit, sortBy)
+        .then(results => {
+            let output = '<div class="card-columns">';
 
-        // Create forEach for getting the relevant data and display it
+            // Create forEach for getting the relevant data and display it
+            results.forEach(post => {
+                output += `
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">${post.title}</h5>
+                    <p class="card-text">${post.selftext}</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>`;
+            });
 
-
-        output +='</div>';
-    });
+            output += '</div>';
+            document.getElementById('results').innerHTML = output;
+        });
 
 
     e.preventDefault();
@@ -52,8 +63,8 @@ function showMessage(message, className) {
     const search = document.getElementById('search')
 
     // Insert message
-    searchContainer.insertBefore(div,search);
+    searchContainer.insertBefore(div, search);
 
     // Timeout the message to disappear
-    setTimeout(() => document.querySelector('.alert').remove(),3000);
+    setTimeout(() => document.querySelector('.alert').remove(), 3000);
 }
