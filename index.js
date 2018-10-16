@@ -35,7 +35,7 @@ searchForm.addEventListener('submit', e => {
                 <img class="card-img-top" src="..." alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">${post.title}</h5>
-                    <p class="card-text">${post.selftext}</p>
+                    <p class="card-text">${truncateText(post.selftext, 100)}</p>
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>`;
@@ -67,4 +67,14 @@ function showMessage(message, className) {
 
     // Timeout the message to disappear
     setTimeout(() => document.querySelector('.alert').remove(), 3000);
+}
+
+// Truncate post.selftext
+function truncateText(text, limit) {
+    // To prevent cutting of a written word it should cut at a space
+    const shortened = text.indexOf(' ', limit)
+
+    if (shortened == -1) return text;
+
+    return text.substring(0, shortened);
 }

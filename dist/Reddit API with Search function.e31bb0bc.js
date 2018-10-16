@@ -156,7 +156,7 @@ searchForm.addEventListener('submit', function (e) {
     var output = '<div class="card-columns">'; // Create forEach for getting the relevant data and display it
 
     results.forEach(function (post) {
-      output += "\n            <div class=\"card\" style=\"width: 18rem;\">\n                <img class=\"card-img-top\" src=\"...\" alt=\"Card image cap\">\n                <div class=\"card-body\">\n                    <h5 class=\"card-title\">".concat(post.title, "</h5>\n                    <p class=\"card-text\">").concat(post.selftext, "</p>\n                    <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>\n                </div>\n            </div>");
+      output += "\n            <div class=\"card\" style=\"width: 18rem;\">\n                <img class=\"card-img-top\" src=\"...\" alt=\"Card image cap\">\n                <div class=\"card-body\">\n                    <h5 class=\"card-title\">".concat(post.title, "</h5>\n                    <p class=\"card-text\">").concat(truncateText(post.selftext, 100), "</p>\n                    <a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>\n                </div>\n            </div>");
     });
     output += '</div>';
     document.getElementById('results').innerHTML = output;
@@ -182,6 +182,14 @@ function showMessage(message, className) {
   setTimeout(function () {
     return document.querySelector('.alert').remove();
   }, 3000);
+} // Truncate post.selftext
+
+
+function truncateText(text, limit) {
+  // To prevent cutting of a written word it should cut at a space
+  var shortened = text.indexOf(' ', limit);
+  if (shortened == -1) return text;
+  return text.substring(0, shortened);
 }
 },{"./redditapi":"redditapi.js"}],"C:/Users/Tolga Kara/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
