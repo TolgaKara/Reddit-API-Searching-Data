@@ -8,6 +8,3 @@ This Project grabs the fetch api of reddit and takes the relevant terms and I ge
 * [ ] Adding more search filters
 * [ ] Follow the subreddit
 * [ ] Creating a modal Window to display the full Content of the Card 
-___
-
-[Preview of the Project](https://htmlpreview.github.io/?https://github.com/TolgaKara/Reddit-API-Searching-Data/blob/master/index.html)
