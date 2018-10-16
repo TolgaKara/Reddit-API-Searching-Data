@@ -104,7 +104,24 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({"index.js":[function(require,module,exports) {
+})({"redditapi.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  search: function search() {}
+};
+exports.default = _default;
+},{}],"index.js":[function(require,module,exports) {
+"use strict";
+
+var _redditapi = _interopRequireDefault(require("./redditapi"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var searchForm = document.getElementById('search-form');
 var searchInput = document.getElementById('search-input'); // Search Form Event Listener
 
@@ -123,6 +140,8 @@ searchForm.addEventListener('submit', function (e) {
 
 
   searchInput.value = ''; // Search Reddit via Fetch API
+
+  _redditapi.default.search(searchTerm, searchLimit, sortBy);
 
   e.preventDefault();
 }); // Show Message
@@ -145,7 +164,7 @@ function showMessage(message, className) {
     return document.querySelector('.alert').remove();
   }, 3000);
 }
-},{}],"C:/Users/Tolga Kara/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./redditapi":"redditapi.js"}],"C:/Users/Tolga Kara/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
