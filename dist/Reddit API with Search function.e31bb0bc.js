@@ -105,7 +105,12 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   // Override the current require with this new one
   return newRequire;
 })({"index.js":[function(require,module,exports) {
-
+var searchForm = document.getElementById('search-form');
+var searchInput = document.getElementById('search-input');
+searchForm.addEventListener('submit', function (e) {
+  console.log(123);
+  e.preventDefault();
+});
 },{}],"C:/Users/Tolga Kara/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -133,7 +138,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "11354" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "12871" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
@@ -276,3 +281,4 @@ function hmrAccept(bundle, id) {
   });
 }
 },{}]},{},["C:/Users/Tolga Kara/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
+//# sourceMappingURL=/Reddit%20API%20with%20Search%20function.e31bb0bc.map
