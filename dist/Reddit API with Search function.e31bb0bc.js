@@ -112,7 +112,18 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _default = {
-  search: function search() {}
+  search: function search(searchTerm, searchLimit, sortBy) {
+    return fetch("http://www.reddit.com/search.json?q=\n        ".concat(searchTerm, "&sort=").concat(sortBy, "&limit=").concat(searchLimit)).then(function (response) {
+      return response.json();
+    }) // Diggin into the data that we get relevant data
+    .then(function (data) {
+      return data.data.children.map(function (data) {
+        return data.data;
+      });
+    }).catch(function (err) {
+      return console.log(err);
+    });
+  }
 };
 exports.default = _default;
 },{}],"index.js":[function(require,module,exports) {
@@ -141,7 +152,11 @@ searchForm.addEventListener('submit', function (e) {
 
   searchInput.value = ''; // Search Reddit via Fetch API
 
-  _redditapi.default.search(searchTerm, searchLimit, sortBy);
+  _redditapi.default.search(searchTerm, searchLimit, sortBy).then(function (results) {
+    var output = '<div class="card-columns">'; // Create forEach for getting the relevant data and display it
+
+    output += '</div>';
+  });
 
   e.preventDefault();
 }); // Show Message

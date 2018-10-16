@@ -24,7 +24,15 @@ searchForm.addEventListener('submit', e => {
     searchInput.value = '';
 
     // Search Reddit via Fetch API
-    reddit.search(searchTerm,searchLimit,sortBy);
+    reddit.search(searchTerm,searchLimit,sortBy)
+    .then(results => {
+        let output = '<div class="card-columns">';
+
+        // Create forEach for getting the relevant data and display it
+
+
+        output +='</div>';
+    });
 
 
     e.preventDefault();
